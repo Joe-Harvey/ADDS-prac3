@@ -2,16 +2,20 @@
 #include "Human.h"
 #include "Computer.h"
 #include "Referee.h"
+
+#include "RandomComputer.h"
 using namespace std;
 
 int main(){
-    Human User1;
-    Computer User2;
-    Referee Ump;
+    RandomComputer comp;
+    comp.makeMove();
 
-    User1.makeMove();
-    User2.makeMove();
-    char result = Ump.refGame(User1, User2);
+    Human user;
+    user.makeMove();
+
+    Referee ump;
+
+    char result = ump.refGame(user, comp);
     cout << result << endl;
 
     return 0;

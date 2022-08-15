@@ -6,10 +6,7 @@ Human :: Human(){
 }
 
 char Human :: makeMove(){
-    char move_letter;
     std::cout << "Enter move: ";
-    std::cin >> move_letter;
-    player_move = move_letter;
-
-    return move_letter;
+    std::cin >> move;
+    return move;
 }

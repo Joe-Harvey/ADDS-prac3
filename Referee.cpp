@@ -1,34 +1,35 @@
 #include "Human.h"
 #include "Computer.h"
 #include "Referee.h"
+#include "Player.h"
 #include <iostream>
 
 Referee :: Referee(){
     return;
 }
 
-char Referee :: refGame(Human User1, Computer User2){
+char Referee :: refGame(Player User1, Player User2){
     char outcome;
     int move_num1;
     int move_num2;
     
-    if (User1.player_move == 'R'){
+    if (User1.getMove() == 'R'){
         move_num1 = 1;
     }
-    if (User1.player_move == 'P'){
+    if (User1.getMove() == 'P'){
         move_num1 = 2;
     }
-    if (User1.player_move == 'S'){
+    if (User1.getMove() == 'S'){
         move_num1 = 3;
     }
 
-    if (User2.computer_move == 'R'){
+    if (User2.getMove() == 'R'){
         move_num2 = 1;
     }
-    if (User2.computer_move == 'P'){
+    if (User2.getMove() == 'P'){
         move_num2 = 2;
     }
-    if (User2.computer_move == 'S'){
+    if (User2.getMove() == 'S'){
         move_num2 = 3;
     }
 
@@ -39,12 +40,15 @@ char Referee :: refGame(Human User1, Computer User2){
     }
 
     if (det == 1){
-        outcome = 'D';
+        outcome = 'W';
     }
 
     if (det == 2){
-        outcome = 'D';
+        outcome = 'L';
     }
+
+    std :: cout << User1.getMove() << std :: endl;
+    std :: cout << User2.getMove() << std :: endl;
 
     return outcome;
 }

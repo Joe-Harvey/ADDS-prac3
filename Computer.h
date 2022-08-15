@@ -1,11 +1,14 @@
 #ifndef COMPUTER_
 #define COMPUTER_
 
-class Computer{
+#include "Player.h"
+
+class Computer : public Player{
+    protected:
+        char move_count;
     public:
-    char computer_move;
-    Computer();
-    char makeMove();
+        Computer();
+        virtual char makeMove();
 };
 
 #endif
