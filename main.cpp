@@ -3,11 +3,11 @@
 #include "Computer.h"
 #include "Referee.h"
 
+#include "Avalanche.h"
 #include "RandomComputer.h"
-using namespace std;
 
 int main(){
-    RandomComputer comp;
+    Avalanche comp;
     comp.makeMove();
 
     Human user;
@@ -16,7 +16,7 @@ int main(){
     Referee ump;
 
     char result = ump.refGame(user, comp);
-    cout << result << endl;
+    std :: cout << result << std :: endl;
 
     return 0;
 }
