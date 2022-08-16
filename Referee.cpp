@@ -1,11 +1,9 @@
-#include "Human.h"
-#include "Computer.h"
 #include "Referee.h"
 #include "Player.h"
 #include <iostream>
 
 Referee :: Referee(){
-    return;
+    
 }
 
 char Referee :: refGame(Player User1, Player User2){

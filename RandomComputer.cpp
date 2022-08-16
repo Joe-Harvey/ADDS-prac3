@@ -1,19 +1,18 @@
-#include "Player.h"
-#include "Computer.h"
 #include "RandomComputer.h"
 #include <stdlib.h>
-#include <iostream>
+#include <time.h> 
+
+using namespace std;
 
 RandomComputer :: RandomComputer(){
-    return;
+    
 }
 
 char RandomComputer :: makeMove(){
+    srand (time(NULL));
     int num;
-    char move;
-    num = (std :: rand() % 3) + 1;
-    std :: cout << num << std :: endl;
-    std:: cout << std :: rand() % 3 << std :: endl;
+    num = (rand() % 3) + 1;
+
     if (num == 1){
         move = 'R';
     }

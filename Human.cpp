@@ -2,7 +2,7 @@
 #include <iostream>
 
 Human :: Human(){
-    return;
+    
 }
 
 char Human :: makeMove(){
