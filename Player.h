@@ -10,6 +10,7 @@ class Player{
     virtual char makeMove();
     char getMove();
     void reset_count();
+
 };
 
 #endif

@@ -7,7 +7,7 @@ Tournament :: Tournament(){
 
 }
 
-Player Tournament :: run(std :: array<Player , 8>  competitors){
+Player * Tournament :: run(std :: array<Player *, 8>  competitors){
 
     Referee TRef;
 
@@ -20,9 +20,11 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
     for (int n = 0; n < 4; n){
 
     for (int i = 0; i < 5; i++){
-        competitors.at(2*n).makeMove();
-        competitors.at(2*n + 1).makeMove();
-        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
+        //players play moves
+        (*competitors.at(2*n)).makeMove();
+        (*competitors.at(2*n + 1)).makeMove();
+        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));\
+        //record results
         if (result == 'W'){
             round_1.at(2*n) = round_1.at(2*n) + 1;
         }
@@ -31,14 +33,16 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
         }
     }
 
-        competitors.at(2*n).reset_count();
-        competitors.at(2*n + 1).reset_count();
+        //reset their move_counts
+        (*competitors.at(2*n)).reset_count();
+        (*competitors.at(2*n + 1)).reset_count();
 
+    //move players to new positions
     if (round_1.at(2*n) >= round_1.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n);
+        *competitors.at(n) = *competitors.at(2*n);
     }
     if (round_1.at(2*n) < round_1.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n + 1);
+        *competitors.at(n) = *competitors.at(2*n + 1);
     }
     }
 
@@ -47,9 +51,9 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
     for (int n = 0; n < 2; n){
 
     for (int i = 0; i < 5; i++){
-        competitors.at(2*n).makeMove();
-        competitors.at(2*n + 1).makeMove();
-        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
+        (*competitors.at(2*n)).makeMove();
+        (*competitors.at(2*n + 1)).makeMove();
+        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));
         if (result == 'W'){
             round_2.at(2*n) = round_2.at(2*n) + 1;
         }
@@ -58,14 +62,14 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
         }
     }
 
-        competitors.at(2*n).reset_count();
-        competitors.at(2*n + 1).reset_count();
+        (*competitors.at(2*n)).reset_count();
+        (*competitors.at(2*n + 1)).reset_count();
 
     if (round_2.at(2*n) >= round_2.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n);
+        *competitors.at(n) = *competitors.at(2*n);
     }
     if (round_2.at(2*n) < round_2.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n + 1);
+        *competitors.at(n) = *competitors.at(2*n + 1);
     }
     }
 
@@ -74,9 +78,9 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
     for (int n = 0; n < 1; n){
 
     for (int i = 0; i < 5; i++){
-        competitors.at(2*n).makeMove();
-        competitors.at(2*n + 1).makeMove();
-        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
+        (*competitors.at(2*n)).makeMove();
+        (*competitors.at(2*n + 1)).makeMove();
+        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));
         if (result == 'W'){
             round_3.at(2*n) = round_3.at(2*n) + 1;
         }
@@ -85,14 +89,14 @@ Player Tournament :: run(std :: array<Player , 8>  competitors){
         }
     }
 
-        competitors.at(2*n).reset_count();
-        competitors.at(2*n + 1).reset_count();
+        (*competitors.at(2*n)).reset_count();
+        (*competitors.at(2*n + 1)).reset_count();
 
     if (round_3.at(2*n) >= round_3.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n);
+        *competitors.at(n) = *competitors.at(2*n);
     }
     if (round_3.at(2*n) < round_3.at(2*n + 1)){
-        competitors.at(n) = competitors.at(2*n + 1);
+        *competitors.at(n) = *competitors.at(2*n + 1);
     }
     }
 
