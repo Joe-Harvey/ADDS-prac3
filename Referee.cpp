@@ -6,28 +6,28 @@ Referee :: Referee(){
     
 }
 
-char Referee :: refGame(Player User1, Player User2){
+char Referee :: refGame(Player * User1, Player * User2){
     char outcome;
     int move_num1;
     int move_num2;
     
-    if (User1.getMove() == 'R'){
+    if (User1->getMove() == 'R'){
         move_num1 = 1;
     }
-    if (User1.getMove() == 'P'){
+    if (User1->getMove() == 'P'){
         move_num1 = 2;
     }
-    if (User1.getMove() == 'S'){
+    if (User1->getMove() == 'S'){
         move_num1 = 3;
     }
 
-    if (User2.getMove() == 'R'){
+    if (User2->getMove() == 'R'){
         move_num2 = 1;
     }
-    if (User2.getMove() == 'P'){
+    if (User2->getMove() == 'P'){
         move_num2 = 2;
     }
-    if (User2.getMove() == 'S'){
+    if (User2->getMove() == 'S'){
         move_num2 = 3;
     }
 
@@ -45,8 +45,8 @@ char Referee :: refGame(Player User1, Player User2){
         outcome = 'L';
     }
 
-    std :: cout << User1.getMove() << std :: endl;
-    std :: cout << User2.getMove() << std :: endl;
+    std :: cout << User1->getMove() << std :: endl;
+    std :: cout << User2->getMove() << std :: endl;
 
     return outcome;
 }

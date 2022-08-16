@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Referee.h"
 #include <array>
+#include <iostream>
 
 Tournament :: Tournament(){
 
@@ -15,15 +16,32 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
     std :: array<int, 4> round_2 = {0,0,0,0};
     std :: array<int, 2> round_3 = {0,0};
 
+    std :: cout << "fun1" << std :: endl; 
+
+
+    competitors.at(0)->makeMove();
+
+
     //round 1
 
-    for (int n = 0; n < 4; n){
+    for (int n = 0; n < 4; n++){
+
+        std :: cout << "fun2" << std :: endl; 
 
     for (int i = 0; i < 5; i++){
+
+        std :: cout << "fun3" << std :: endl;
+
+        std :: cout << competitors.at(2*n) << std :: endl;
         //players play moves
-        (*competitors.at(2*n)).makeMove();
-        (*competitors.at(2*n + 1)).makeMove();
-        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));\
+
+
+        competitors.at(2*n)->makeMove();
+
+
+        std :: cout << "fun4" << std :: endl;
+        competitors.at(2*n + 1)->makeMove();
+        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
         //record results
         if (result == 'W'){
             round_1.at(2*n) = round_1.at(2*n) + 1;
@@ -31,11 +49,13 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
         if (result == 'L'){
             round_1.at(2*n + 1) = round_1.at(2*n + 1) + 1;
         }
+
+        std :: cout << round_1.at(2*n) << round_1.at(2*n + 1) << std :: endl;
     }
 
         //reset their move_counts
-        (*competitors.at(2*n)).reset_count();
-        (*competitors.at(2*n + 1)).reset_count();
+        competitors.at(2*n)->reset_count();
+        competitors.at(2*n + 1)->reset_count();
 
     //move players to new positions
     if (round_1.at(2*n) >= round_1.at(2*n + 1)){
@@ -48,12 +68,12 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
 
     //round 2
 
-    for (int n = 0; n < 2; n){
+    for (int n = 0; n < 2; n++){
 
     for (int i = 0; i < 5; i++){
-        (*competitors.at(2*n)).makeMove();
-        (*competitors.at(2*n + 1)).makeMove();
-        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));
+        competitors.at(2*n)->makeMove();
+        competitors.at(2*n + 1)->makeMove();
+        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
         if (result == 'W'){
             round_2.at(2*n) = round_2.at(2*n) + 1;
         }
@@ -62,8 +82,8 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
         }
     }
 
-        (*competitors.at(2*n)).reset_count();
-        (*competitors.at(2*n + 1)).reset_count();
+        competitors.at(2*n)->reset_count();
+        competitors.at(2*n + 1)->reset_count();
 
     if (round_2.at(2*n) >= round_2.at(2*n + 1)){
         *competitors.at(n) = *competitors.at(2*n);
@@ -75,12 +95,12 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
 
 // round 3
 
-    for (int n = 0; n < 1; n){
+    for (int n = 0; n < 1; n++){
 
     for (int i = 0; i < 5; i++){
-        (*competitors.at(2*n)).makeMove();
-        (*competitors.at(2*n + 1)).makeMove();
-        char result = TRef.refGame(*competitors.at(2*n), *competitors.at(2*n + 1));
+        competitors.at(2*n)->makeMove();
+        competitors.at(2*n + 1)->makeMove();
+        char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
         if (result == 'W'){
             round_3.at(2*n) = round_3.at(2*n) + 1;
         }
@@ -89,8 +109,8 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
         }
     }
 
-        (*competitors.at(2*n)).reset_count();
-        (*competitors.at(2*n + 1)).reset_count();
+        competitors.at(2*n)->reset_count();
+        competitors.at(2*n + 1)->reset_count();
 
     if (round_3.at(2*n) >= round_3.at(2*n + 1)){
         *competitors.at(n) = *competitors.at(2*n);

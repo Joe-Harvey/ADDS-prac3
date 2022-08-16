@@ -30,13 +30,12 @@ int main(){
     PaperDoll * P6;
     FistfullODollars * P7;
 
-    std :: array<Player, 8> contestants = {P0, P1, P2, P3, P4, P5, P6, P7};
+    std :: array<Player *, 8> contestants = {P0, P1, P2, P3, P4, P5, P6, P7};
 
-    Tournament tournament;
+    Tournament T;
 
-    Player * winner = tournament.run(contestants);
+    Player * winner = T.run(contestants);
 
-    //std :: cout << winner << std :: endl;
     std :: cout << "end" << std :: endl;
 
     return 0;
