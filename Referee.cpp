@@ -34,7 +34,7 @@ char Referee :: refGame(Player * User1, Player * User2){
     int det = (move_num1 - move_num2 + 3) % 3;
 
     if (det == 0){
-        outcome = 'D';
+        outcome = 'T';
     }
 
     if (det == 1){
@@ -44,9 +44,6 @@ char Referee :: refGame(Player * User1, Player * User2){
     if (det == 2){
         outcome = 'L';
     }
-
-    std :: cout << User1->getMove() << std :: endl;
-    std :: cout << User2->getMove() << std :: endl;
 
     return outcome;
 }

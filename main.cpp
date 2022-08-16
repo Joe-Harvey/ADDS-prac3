@@ -21,22 +21,20 @@
 
 int main(){
     
-    Human * P0;
-    RandomComputer * P1;
-    Avalanche * P2;
-    Bureaucrat * P3;
-    Toolbox * P4;
-    Crescendo * P5;
-    PaperDoll * P6;
-    FistfullODollars * P7;
+    Human * P0 = new Human();
+    RandomComputer * P1 = new RandomComputer();
+    Avalanche * P2 = new Avalanche();
+    Bureaucrat * P3 = new Bureaucrat();
+    Toolbox * P4 = new Toolbox();
+    Crescendo * P5 = new Crescendo();
+    PaperDoll * P6 = new PaperDoll();
+    FistfullODollars * P7 = new FistfullODollars();
 
     std :: array<Player *, 8> contestants = {P0, P1, P2, P3, P4, P5, P6, P7};
 
     Tournament T;
 
     Player * winner = T.run(contestants);
-
-    std :: cout << "end" << std :: endl;
 
     return 0;
 }

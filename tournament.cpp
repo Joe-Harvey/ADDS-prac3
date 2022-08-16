@@ -16,30 +16,14 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
     std :: array<int, 4> round_2 = {0,0,0,0};
     std :: array<int, 2> round_3 = {0,0};
 
-    std :: cout << "fun1" << std :: endl; 
-
-
-    competitors.at(0)->makeMove();
-
-
     //round 1
 
     for (int n = 0; n < 4; n++){
 
-        std :: cout << "fun2" << std :: endl; 
-
     for (int i = 0; i < 5; i++){
 
-        std :: cout << "fun3" << std :: endl;
-
-        std :: cout << competitors.at(2*n) << std :: endl;
         //players play moves
-
-
         competitors.at(2*n)->makeMove();
-
-
-        std :: cout << "fun4" << std :: endl;
         competitors.at(2*n + 1)->makeMove();
         char result = TRef.refGame(competitors.at(2*n), competitors.at(2*n + 1));
         //record results
@@ -50,7 +34,6 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
             round_1.at(2*n + 1) = round_1.at(2*n + 1) + 1;
         }
 
-        std :: cout << round_1.at(2*n) << round_1.at(2*n + 1) << std :: endl;
     }
 
         //reset their move_counts
