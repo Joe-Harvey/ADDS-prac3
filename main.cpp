@@ -6,7 +6,7 @@
 
 #include "Human.h"
 
-#include "tournament.h"
+#include "Tournament.h"
 
 #include "RandomComputer.h"
 #include "Avalanche.h"

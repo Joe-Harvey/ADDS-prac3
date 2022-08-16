@@ -1,4 +1,4 @@
-#include "tournament.h"
+#include "Tournament.h"
 #include "Player.h"
 #include "Referee.h"
 #include <array>
