@@ -34,6 +34,7 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
             round_1.at(2*n + 1) = round_1.at(2*n + 1) + 1;
         }
 
+        std :: cout << result << std :: endl;
     }
 
         //reset their move_counts
@@ -42,10 +43,10 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
 
     //move players to new positions
     if (round_1.at(2*n) >= round_1.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n);
+        competitors.at(n) = competitors.at(2*n);
     }
     if (round_1.at(2*n) < round_1.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n + 1);
+        competitors.at(n) = competitors.at(2*n + 1);
     }
     }
 
@@ -63,16 +64,18 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
         if (result == 'L'){
             round_2.at(2*n + 1) = round_2.at(2*n + 1) + 1;
         }
+
+        std :: cout << result << std :: endl;
     }
 
         competitors.at(2*n)->reset_count();
         competitors.at(2*n + 1)->reset_count();
 
     if (round_2.at(2*n) >= round_2.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n);
+        competitors.at(n) = competitors.at(2*n);
     }
     if (round_2.at(2*n) < round_2.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n + 1);
+        competitors.at(n) = competitors.at(2*n + 1);
     }
     }
 
@@ -90,16 +93,18 @@ Player * Tournament :: run(std :: array<Player *, 8>  competitors){
         if (result == 'L'){
             round_3.at(2*n + 1) = round_3.at(2*n + 1) + 1;
         }
+
+        std :: cout << result << std :: endl;
     }
 
         competitors.at(2*n)->reset_count();
         competitors.at(2*n + 1)->reset_count();
 
     if (round_3.at(2*n) >= round_3.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n);
+        competitors.at(n) = competitors.at(2*n);
     }
     if (round_3.at(2*n) < round_3.at(2*n + 1)){
-        *competitors.at(n) = *competitors.at(2*n + 1);
+        competitors.at(n) = competitors.at(2*n + 1);
     }
     }
 
